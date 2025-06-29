@@ -12,9 +12,14 @@ function startCooking() {
 }
 
 function nextStep() {
-  currentStep++;
-  highlightStep();
-  updateProgress();
+  const totalSteps = document.querySelectorAll("#stepList li").length;
+
+  // Only move to next step if not already at the last one
+  if (currentStep < totalSteps - 1) {
+    currentStep++;
+    highlightStep();
+    updateProgress();
+  }
 }
 
 function highlightStep() {
